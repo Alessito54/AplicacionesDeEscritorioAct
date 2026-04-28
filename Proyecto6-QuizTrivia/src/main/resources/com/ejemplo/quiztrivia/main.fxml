@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.ejemplo.quiztrivia.QuizTriviaController"
+      prefWidth="560" prefHeight="480" spacing="0"
+      style="-fx-background-color: #1a1a2e; -fx-padding: 24;">
+
+    <HBox alignment="CENTER_LEFT" spacing="20" style="-fx-padding: 0 0 12 0;">
+        <Label fx:id="lblNumero" text="Pregunta 1 de 10"
+               style="-fx-text-fill: #e94560; -fx-font-size: 14px; -fx-font-weight: bold;"/>
+        <Label fx:id="lblPuntaje" text="Puntaje: 0"
+               style="-fx-text-fill: #a8dadc; -fx-font-size: 14px; -fx-font-weight: bold;"/>
+    </HBox>
+
+    <Label fx:id="lblPregunta" text=""
+           wrapText="true" prefWidth="512"
+           style="-fx-text-fill: #e0e0e0; -fx-font-size: 18px; -fx-font-weight: bold;
+                  -fx-padding: 16 20; -fx-background-color: #16213e;
+                  -fx-background-radius: 10; -fx-min-height: 90;"/>
+
+    <VBox spacing="12" style="-fx-padding: 20 0 0 0;">
+        <Button fx:id="btnA" text="" onAction="#handleRespuestaA"
+                maxWidth="Infinity" prefHeight="52"
+                style="-fx-background-color: #16213e; -fx-text-fill: #e0e0e0; -fx-font-size: 15px;
+                       -fx-alignment: center-left; -fx-padding: 0 16;
+                       -fx-background-radius: 8; -fx-cursor: hand;"/>
+        <Button fx:id="btnB" text="" onAction="#handleRespuestaB"
+                maxWidth="Infinity" prefHeight="52"
+                style="-fx-background-color: #16213e; -fx-text-fill: #e0e0e0; -fx-font-size: 15px;
+                       -fx-alignment: center-left; -fx-padding: 0 16;
+                       -fx-background-radius: 8; -fx-cursor: hand;"/>
+        <Button fx:id="btnC" text="" onAction="#handleRespuestaC"
+                maxWidth="Infinity" prefHeight="52"
+                style="-fx-background-color: #16213e; -fx-text-fill: #e0e0e0; -fx-font-size: 15px;
+                       -fx-alignment: center-left; -fx-padding: 0 16;
+                       -fx-background-radius: 8; -fx-cursor: hand;"/>
+        <Button fx:id="btnD" text="" onAction="#handleRespuestaD"
+                maxWidth="Infinity" prefHeight="52"
+                style="-fx-background-color: #16213e; -fx-text-fill: #e0e0e0; -fx-font-size: 15px;
+                       -fx-alignment: center-left; -fx-padding: 0 16;
+                       -fx-background-radius: 8; -fx-cursor: hand;"/>
+    </VBox>
+
+    <Label fx:id="lblResultado" text="" wrapText="true"
+           style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-padding: 12 0 0 0;"/>
+
+    <HBox spacing="12" alignment="CENTER_RIGHT" style="-fx-padding: 16 0 0 0;">
+        <Button text="🔄 Reiniciar" onAction="#handleReiniciar" prefWidth="120"
+                style="-fx-background-color: #e94560; -fx-text-fill: white; -fx-font-size: 13px;
+                       -fx-padding: 9 18; -fx-background-radius: 8; -fx-cursor: hand;"/>
+        <Button fx:id="btnSiguiente" text="Siguiente ▶" onAction="#handleSiguiente" prefWidth="130"
+                disable="true"
+                style="-fx-background-color: #a8dadc; -fx-text-fill: #1a1a2e; -fx-font-size: 13px;
+                       -fx-font-weight: bold; -fx-padding: 9 18; -fx-background-radius: 8; -fx-cursor: hand;"/>
+    </HBox>
+
+</VBox>

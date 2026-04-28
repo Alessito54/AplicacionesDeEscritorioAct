@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.ejemplo.editardetexto.EditorDeTextoController"
+            prefWidth="800" prefHeight="600">
+
+    <top>
+        <VBox>
+            <MenuBar>
+                <Menu text="Archivo">
+                    <MenuItem text="Nuevo" onAction="#handleNuevo" accelerator="Ctrl+N"/>
+                    <MenuItem text="Abrir..." onAction="#handleAbrir" accelerator="Ctrl+O"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Guardar" onAction="#handleGuardar" accelerator="Ctrl+S"/>
+                    <MenuItem text="Guardar como..." onAction="#handleGuardarComo" accelerator="Ctrl+Shift+S"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Salir" onAction="#handleSalir"/>
+                </Menu>
+                <Menu text="Editar">
+                    <MenuItem text="Copiar" onAction="#handleCopiar" accelerator="Ctrl+C"/>
+                    <MenuItem text="Cortar" onAction="#handleCortar" accelerator="Ctrl+X"/>
+                    <MenuItem text="Pegar" onAction="#handlePegar" accelerator="Ctrl+V"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Seleccionar todo" onAction="#handleSeleccionarTodo" accelerator="Ctrl+A"/>
+                </Menu>
+            </MenuBar>
+            <ToolBar>
+                <Button text="📄 Nuevo" onAction="#handleNuevo"
+                        style="-fx-background-color: transparent; -fx-cursor: hand;"/>
+                <Button text="📂 Abrir" onAction="#handleAbrir"
+                        style="-fx-background-color: transparent; -fx-cursor: hand;"/>
+                <Button text="💾 Guardar" onAction="#handleGuardar"
+                        style="-fx-background-color: transparent; -fx-cursor: hand;"/>
+                <Separator/>
+                <Label fx:id="lblArchivo" text="Archivo: Sin título"
+                       style="-fx-font-size: 12px; -fx-text-fill: #555;"/>
+            </ToolBar>
+        </VBox>
+    </top>
+
+    <center>
+        <TextArea fx:id="areaTexto" wrapText="true"
+                  style="-fx-font-family: 'Courier New', monospace; -fx-font-size: 14px;
+                         -fx-background-color: #fafafa;"
+                  BorderPane.alignment="CENTER"/>
+    </center>
+
+    <bottom>
+        <Label fx:id="lblLineas" text="Líneas: 0  |  Caracteres: 0"
+               style="-fx-padding: 4 8; -fx-font-size: 12px; -fx-text-fill: #666;
+                      -fx-background-color: #e8e8e8;"
+               maxWidth="Infinity"/>
+    </bottom>
+
+</BorderPane>

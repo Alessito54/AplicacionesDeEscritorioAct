@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.ejemplo.calculadora.CalculadoraController"
+      prefWidth="320" prefHeight="480"
+      style="-fx-background-color: #1e1e2e; -fx-padding: 10;">
+
+    <TextField fx:id="pantalla" text="0" editable="false"
+               style="-fx-background-color: #313244; -fx-text-fill: white;
+                      -fx-font-size: 32px; -fx-alignment: center-right;
+                      -fx-padding: 10 15 10 15; -fx-border-radius: 6; -fx-background-radius: 6;"
+               prefHeight="80" maxWidth="Infinity"/>
+
+    <VBox spacing="8" style="-fx-padding: 10 0 0 0;">
+
+        <HBox spacing="8">
+            <Button text="%" onAction="#handlePorcentaje" prefWidth="70" prefHeight="60"
+                    style="-fx-background-color: #45475a; -fx-text-fill: #cdd6f4; -fx-font-size: 18px; -fx-background-radius: 8;"/>
+            <Button text="+/-" onAction="#handleNegarPositivo" prefWidth="70" prefHeight="60"
+                    style="-fx-background-color: #45475a; -fx-text-fill: #cdd6f4; -fx-font-size: 18px; -fx-background-radius: 8;"/>
+            <Button text="⌫" onAction="#handleBorrar" prefWidth="70" prefHeight="60"
+                    style="-fx-background-color: #45475a; -fx-text-fill: #cdd6f4; -fx-font-size: 18px; -fx-background-radius: 8;"/>
+            <Button text="÷" onAction="#handleOperador" prefWidth="70" prefHeight="60"
+                    style="-fx-background-color: #fab387; -fx-text-fill: #1e1e2e; -fx-font-size: 22px; -fx-font-weight: bold; -fx-background-radius: 8;"/>
+        </HBox>
+
+        <HBox spacing="8">
+            <Button text="7" onAction="#handleDigito" prefWidth="70" prefHeight="60"
+                    style="-fx-background-color: #313244; -fx-text-fill: #cdd6f4; -fx-font-size: 22px; -fx-background-radius: 8;"/>
+            <Button text="8" onAction="#handleDigito" prefWidth="70" prefHeight="60"
+                    style="-fx-background-color: #313244; -fx-text-fill: #cdd6f4; -fx-font-size: 22px; -fx-background-radius: 8;"/>
+            <Button text="9" onAction="#handleDigito" prefWidth="70" prefHeight="60"
+                    style="-fx-background-color: #313244; -fx-text-fill: #cdd6f4; -fx-font-size: 22px; -fx-background-radius: 8;"/>
+            <Button text="×" onAction="#handleOperador" prefWidth="70" prefHeight="60"
+                    style="-fx-background-color: #fab387; -fx-text-fill: #1e1e2e; -fx-font-size: 22px; -fx-font-weight: bold; -fx-background-radius: 8;"/>
+        </HBox>
+
+        <HBox spacing="8">
+            <Button text="4" onAction="#handleDigito" prefWidth="70" prefHeight="60"
+                    style="-fx-background-color: #313244; -fx-text-fill: #cdd6f4; -fx-font-size: 22px; -fx-background-radius: 8;"/>
+            <Button text="5" onAction="#handleDigito" prefWidth="70" prefHeight="60"
+                    style="-fx-background-color: #313244; -fx-text-fill: #cdd6f4; -fx-font-size: 22px; -fx-background-radius: 8;"/>
+            <Button text="6" onAction="#handleDigito" prefWidth="70" prefHeight="60"
+                    style="-fx-background-color: #313244; -fx-text-fill: #cdd6f4; -fx-font-size: 22px; -fx-background-radius: 8;"/>
+            <Button text="-" onAction="#handleOperador" prefWidth="70" prefHeight="60"
+                    style="-fx-background-color: #fab387; -fx-text-fill: #1e1e2e; -fx-font-size: 26px; -fx-font-weight: bold; -fx-background-radius: 8;"/>
+        </HBox>
+
+        <HBox spacing="8">
+            <Button text="1" onAction="#handleDigito" prefWidth="70" prefHeight="60"
+                    style="-fx-background-color: #313244; -fx-text-fill: #cdd6f4; -fx-font-size: 22px; -fx-background-radius: 8;"/>
+            <Button text="2" onAction="#handleDigito" prefWidth="70" prefHeight="60"
+                    style="-fx-background-color: #313244; -fx-text-fill: #cdd6f4; -fx-font-size: 22px; -fx-background-radius: 8;"/>
+            <Button text="3" onAction="#handleDigito" prefWidth="70" prefHeight="60"
+                    style="-fx-background-color: #313244; -fx-text-fill: #cdd6f4; -fx-font-size: 22px; -fx-background-radius: 8;"/>
+            <Button text="+" onAction="#handleOperador" prefWidth="70" prefHeight="60"
+                    style="-fx-background-color: #fab387; -fx-text-fill: #1e1e2e; -fx-font-size: 26px; -fx-font-weight: bold; -fx-background-radius: 8;"/>
+        </HBox>
+
+        <HBox spacing="8">
+            <Button text="C" onAction="#handleLimpiar" prefWidth="148" prefHeight="60"
+                    style="-fx-background-color: #f38ba8; -fx-text-fill: #1e1e2e; -fx-font-size: 22px; -fx-font-weight: bold; -fx-background-radius: 8;"/>
+            <Button text="." onAction="#handleDecimal" prefWidth="70" prefHeight="60"
+                    style="-fx-background-color: #313244; -fx-text-fill: #cdd6f4; -fx-font-size: 22px; -fx-background-radius: 8;"/>
+            <Button text="=" onAction="#handleIgual" prefWidth="70" prefHeight="60"
+                    style="-fx-background-color: #a6e3a1; -fx-text-fill: #1e1e2e; -fx-font-size: 26px; -fx-font-weight: bold; -fx-background-radius: 8;"/>
+        </HBox>
+
+    </VBox>
+</VBox>

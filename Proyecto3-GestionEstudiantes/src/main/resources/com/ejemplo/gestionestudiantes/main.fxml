@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.ejemplo.gestionestudiantes.GestionEstudiantesController"
+            prefWidth="680" prefHeight="500"
+            style="-fx-background-color: #f7fafc; -fx-padding: 20;">
+
+    <top>
+        <VBox spacing="10" BorderPane.alignment="CENTER">
+            <Label text="Gestión de Estudiantes" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #2d3748;"/>
+            <GridPane hgap="10" vgap="8">
+                <Label text="Nombre:" GridPane.rowIndex="0" GridPane.columnIndex="0"
+                       style="-fx-font-size: 13px; -fx-font-weight: bold;"/>
+                <TextField fx:id="txtNombre" promptText="Nombre del estudiante"
+                           GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="200"
+                           style="-fx-font-size: 13px; -fx-padding: 6; -fx-background-radius: 5;"/>
+
+                <Label text="Materia:" GridPane.rowIndex="0" GridPane.columnIndex="2"
+                       style="-fx-font-size: 13px; -fx-font-weight: bold;"/>
+                <TextField fx:id="txtMateria" promptText="Nombre de la materia"
+                           GridPane.rowIndex="0" GridPane.columnIndex="3" prefWidth="200"
+                           style="-fx-font-size: 13px; -fx-padding: 6; -fx-background-radius: 5;"/>
+
+                <Label text="Calificación:" GridPane.rowIndex="1" GridPane.columnIndex="0"
+                       style="-fx-font-size: 13px; -fx-font-weight: bold;"/>
+                <TextField fx:id="txtCalificacion" promptText="0.0 – 10.0"
+                           GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="200"
+                           style="-fx-font-size: 13px; -fx-padding: 6; -fx-background-radius: 5;"/>
+
+                <HBox spacing="10" GridPane.rowIndex="1" GridPane.columnIndex="2" GridPane.columnSpan="2">
+                    <Button text="Agregar" onAction="#handleAgregar" prefWidth="100"
+                            style="-fx-background-color: #4299e1; -fx-text-fill: white; -fx-font-size: 13px;
+                                   -fx-padding: 7 14; -fx-background-radius: 6; -fx-cursor: hand;"/>
+                    <Button text="Eliminar" onAction="#handleEliminar" prefWidth="100"
+                            style="-fx-background-color: #fc8181; -fx-text-fill: white; -fx-font-size: 13px;
+                                   -fx-padding: 7 14; -fx-background-radius: 6; -fx-cursor: hand;"/>
+                    <Button text="Limpiar" onAction="#handleLimpiar" prefWidth="100"
+                            style="-fx-background-color: #a0aec0; -fx-text-fill: white; -fx-font-size: 13px;
+                                   -fx-padding: 7 14; -fx-background-radius: 6; -fx-cursor: hand;"/>
+                </HBox>
+            </GridPane>
+        </VBox>
+    </top>
+
+    <center>
+        <TableView fx:id="tablaEstudiantes" style="-fx-border-radius: 8; -fx-background-radius: 8;"
+                   BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="colNombre" text="Nombre" prefWidth="240"/>
+                <TableColumn fx:id="colMateria" text="Materia" prefWidth="220"/>
+                <TableColumn fx:id="colCalificacion" text="Calificación" prefWidth="120"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <bottom>
+        <Label fx:id="lblPromedio" text="Promedio general: N/A"
+               style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #4a5568; -fx-padding: 8 0 0 0;"
+               BorderPane.alignment="CENTER_LEFT"/>
+    </bottom>
+
+</BorderPane>
