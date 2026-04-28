@@ -1,8 +1,10 @@
 package com.example.imagenesdataset.data;
 
 import com.example.imagenesdataset.Domain.Imagen;
+import com.example.imagenesdataset.Domain.PixabayResponse;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.github.cdimascio.dotenv.Dotenv;
 
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -12,44 +14,43 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConsumidorAPI {
-   public static String cargarDatos(){
-       try {
+    private static final Dotenv dotenv = Dotenv.configure().ignoreIfMissing().load();
 
+    public static String cargarDatos() {
+        try {
 
+            HttpClient client = HttpClient.newHttpClient();
 
-           HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create("https://pixabay.com/api/?key=" + dotenv.get("PIXABAY_KEY")
+                            + "&q=video+games&image_type=photo&per_page=200"))
+                    .GET()
+                    .build();
 
-           HttpRequest request = HttpRequest.newBuilder()
-                   .uri(URI.create("https://picsum.photos/v2/list?page=1"))
-                   .GET()
-                   .build();
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
+            return response.body();
 
-           HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
+    public static List<Imagen> cargarDatosList() {
+        try {
+            String json = cargarDatos();
 
-           return  response.body();
+            ObjectMapper mapper = new ObjectMapper();
 
+            PixabayResponse response = mapper.readValue(json, PixabayResponse.class);
 
-       } catch (Exception e) {
-           e.printStackTrace();
-           return null;
-       }
-   }
-   public static List<Imagen> cargarDatosList(){
-       try {
+            return response.getHits();
 
-           String json = cargarDatos();
-           if (json == null) {
-               return new ArrayList<>();
-           }
-           ObjectMapper mapper = new ObjectMapper();
-           return mapper.readValue(json, new TypeReference<List<Imagen>>() {});
-       }catch (Exception e){
-           e.printStackTrace();
-           return null;
-       }
-
-   }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
+    }
 
 }

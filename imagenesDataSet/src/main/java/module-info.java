@@ -2,6 +2,7 @@ module com.example.imagenesdataset {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.net.http;
+    requires io.github.cdimascio.dotenv.java;
 
     // Jackson modules
     requires com.fasterxml.jackson.core;

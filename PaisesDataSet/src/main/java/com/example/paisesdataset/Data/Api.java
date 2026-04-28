@@ -6,6 +6,7 @@ import com.example.paisesdataset.Domain.ZonaTiempo;
 import com.example.paisesdataset.HelloApplication;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.github.cdimascio.dotenv.Dotenv;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -15,7 +16,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Api {
-    public static String cosumirPais(String pais){
+    private static final Dotenv dotenv = Dotenv.configure().ignoreIfMissing().load();
+
+    public static String cosumirPais(String pais) {
         pais = pais.replace(" ", "%20");
         try {
             URL url = new URL("https://restcountries.com/v3.1/name/"
@@ -36,14 +39,15 @@ public class Api {
             throw new RuntimeException(e);
         }
     }
-    public static String cosumirhora(double lat, double lng){
+
+    public static String cosumirhora(double lat, double lng) {
 
         try {
             URL url = new URL(
-                    "http://api.timezonedb.com/v2.1/get-time-zone?key=QRO1OOTKZP38&by=position&format=json"
+                    "http://api.timezonedb.com/v2.1/get-time-zone?key=" + dotenv.get("TIMEZONEDB_KEY")
+                            + "&by=position&format=json"
                             + "&lat=" + lat
-                            + "&lng=" + lng
-            );
+                            + "&lng=" + lng);
             HttpURLConnection conexion = (HttpURLConnection) url.openConnection();
             conexion.setRequestMethod("GET");
             conexion.setRequestProperty("User-Agent", "Mozilla/5.0");
@@ -60,16 +64,16 @@ public class Api {
             throw new RuntimeException(e);
         }
     }
+
     public static String consumirClima(double lat, double lng) {
         try {
             URL url = new URL(
                     "https://api.openweathermap.org/data/2.5/weather"
                             + "?lat=" + lat
                             + "&lon=" + lng
-                            + "&appid=44e6aade7ebc7395254e995689660dff"
+                            + "&appid=" + dotenv.get("OPENWEATHER_KEY")
                             + "&units=metric"
-                            + "&lang=es"
-            );
+                            + "&lang=es");
 
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
@@ -86,12 +90,10 @@ public class Api {
 
             if (status >= 200 && status < 300) {
                 bufferedReader = new BufferedReader(
-                        new InputStreamReader(connection.getInputStream())
-                );
+                        new InputStreamReader(connection.getInputStream()));
             } else {
                 bufferedReader = new BufferedReader(
-                        new InputStreamReader(connection.getErrorStream())
-                );
+                        new InputStreamReader(connection.getErrorStream()));
             }
 
             String linea;
@@ -125,6 +127,7 @@ public class Api {
         System.out.println(data.getTemperatura());
 
     }
+
     public static ArrayList<Pais> obtenerListaPaises() {
 
         try {
@@ -135,8 +138,7 @@ public class Api {
             conexion.setRequestProperty("User-Agent", "Mozilla/5.0");
 
             BufferedReader reader = new BufferedReader(
-                    new InputStreamReader(conexion.getInputStream())
-            );
+                    new InputStreamReader(conexion.getInputStream()));
 
             String linea;
             StringBuilder response = new StringBuilder();

@@ -43,7 +43,7 @@ public class MainController {
     public void cargarImagenes(List<Imagen> list) {
 
         contenedorImagenes.getChildren().clear();
-
+        int numero = 1;
         for (Imagen image : list){
 
             // Imagen
@@ -52,17 +52,23 @@ public class MainController {
             imageView.setFitWidth(180);
             imageView.setFitHeight(120);
             imageView.setPreserveRatio(true);
+            image.setNumero(numero++);
 
             // Autor (como título del producto)
             Label autor = new Label(image.getAutor());
             autor.setWrapText(true);
             autor.setMaxWidth(180);
 
+
+            Label num = new Label("Número: " + image.getNumero());
+            num.setWrapText(true);
+            num.setMaxWidth(180);
+
             // Tarjeta
             VBox tarjeta = new VBox();
             tarjeta.setSpacing(8);
             tarjeta.setPrefWidth(200);
-            tarjeta.getChildren().addAll(imageView, autor);
+            tarjeta.getChildren().addAll(imageView, autor,num);
 
             // Estilo tipo card
             tarjeta.setStyle("""

@@ -4,16 +4,24 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Imagen {
-    @JsonProperty("download_url")
-    private  String url;
-    @JsonProperty("author")
-    private  String autor;
-    public Imagen(){}
-    public Imagen(String url, String autor)
-    {
-        this.autor = autor;
-        this.url = url;
+
+    @JsonProperty("webformatURL")
+    private String url;
+
+    @JsonProperty("user")
+    private String autor;
+
+    public int getNumero() {
+        return numero;
     }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    private int numero;
+
+    public Imagen() {}
 
     public String getUrl() {
         return url;
@@ -22,11 +30,5 @@ public class Imagen {
     public String getAutor() {
         return autor;
     }
-    public void setUrl(String url) {
-        this.url = url;
-    }
 
-    public void setAutor(String autor) {
-        this.autor = autor;
-    }
 }
