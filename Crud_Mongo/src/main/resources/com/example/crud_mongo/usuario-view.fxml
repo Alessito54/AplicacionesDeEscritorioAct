@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane styleClass="main-pane" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.crud_mongo.controller.UsuarioController">
+
+    <!-- Header Section -->
+    <top>
+        <VBox alignment="CENTER" styleClass="header-box" BorderPane.alignment="CENTER">
+            <Label styleClass="header-title" text="Gestión de Usuarios" />
+            <Label styleClass="header-subtitle" text="Administración de base de datos MongoDB" />
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+        </VBox>
+    </top>
+
+    <!-- Center Section: Table View -->
+    <center>
+        <VBox spacing="10.0" BorderPane.alignment="CENTER" styleClass="table-container">
+            <TableView fx:id="tableUsuarios" VBox.vgrow="ALWAYS" styleClass="data-table">
+                <columns>
+                    <TableColumn fx:id="colNombre" prefWidth="250.0" text="Nombre" />
+                    <TableColumn fx:id="colEdad" prefWidth="150.0" text="Edad" />
+                </columns>
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                </columnResizePolicy>
+            </TableView>
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="10.0" top="20.0" />
+            </padding>
+        </VBox>
+    </center>
+
+    <!-- Right Section: Form View -->
+    <right>
+        <VBox fx:id="formContainer" alignment="TOP_CENTER" prefWidth="320.0" spacing="20.0" styleClass="form-pane" BorderPane.alignment="CENTER">
+            <Label styleClass="form-title" text="Datos del Usuario" />
+            
+            <VBox spacing="8.0" styleClass="input-group">
+                <Label styleClass="input-label" text="Nombre completo" />
+                <TextField fx:id="txtNombre" promptText="Ej. Alessandro Dev" styleClass="text-field-custom" />
+            </VBox>
+
+            <VBox spacing="8.0" styleClass="input-group">
+                <Label styleClass="input-label" text="Edad" />
+                <TextField fx:id="txtEdad" promptText="Ej. 25" styleClass="text-field-custom" />
+            </VBox>
+
+            <Separator styleClass="separator" />
+
+            <VBox spacing="15.0" styleClass="button-group">
+                <Button fx:id="btnAgregar" maxWidth="Infinity" mnemonicParsing="false" onAction="#agregarUsuario" styleClass="btn btn-primary" text="AGREGAR NUEVO" />
+                <Button fx:id="btnActualizar" maxWidth="Infinity" mnemonicParsing="false" onAction="#actualizarUsuario" styleClass="btn btn-secondary" text="ACTUALIZAR SELECCIONADO" />
+                <Button fx:id="btnEliminar" maxWidth="Infinity" mnemonicParsing="false" onAction="#eliminarUsuario" styleClass="btn btn-danger" text="ELIMINAR SELECCIONADO" />
+                <Button fx:id="btnLimpiar" maxWidth="Infinity" mnemonicParsing="false" onAction="#limpiarFormulario" styleClass="btn btn-outline" text="LIMPIAR CAMPOS" />
+            </VBox>
+            
+            <padding>
+                <Insets bottom="30.0" left="25.0" right="25.0" top="30.0" />
+            </padding>
+        </VBox>
+    </right>
+
+</BorderPane>
