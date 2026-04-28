@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/src/main/java/module-info.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/src/main/java/module-info.java" />
+              <option name="originalContent" value="module com.example.imagenesdataset {&#10;    requires javafx.controls;&#10;    requires javafx.fxml;&#10;    requires java.net.http;&#10;&#10;    // Jackson modules&#10;    requires com.fasterxml.jackson.core;&#10;    requires com.fasterxml.jackson.annotation;&#10;    requires com.fasterxml.jackson.databind;&#10;&#10;    // Permite que JavaFX y Jackson accedan a tus modelos y controladores&#10;    opens com.example.imagenesdataset to javafx.fxml, com.fasterxml.jackson.databind;&#10;    opens com.example.imagenesdataset.Controllers to javafx.fxml, com.fasterxml.jackson.databind;&#10;&#10;    exports com.example.imagenesdataset;&#10;}" />
+              <option name="updatedContent" value="module com.example.imagenesdataset {&#10;    requires javafx.controls;&#10;    requires javafx.fxml;&#10;    requires java.net.http;&#10;&#10;    // Jackson modules&#10;    requires com.fasterxml.jackson.core;&#10;    requires com.fasterxml.jackson.annotation;&#10;    requires com.fasterxml.jackson.databind;&#10;&#10;    // Permite que JavaFX y Jackson accedan a tus modelos y controladores&#10;    opens com.example.imagenesdataset to javafx.fxml, com.fasterxml.jackson.databind;&#10;    opens com.example.imagenesdataset.Controllers to javafx.fxml, com.fasterxml.jackson.databind;&#10;    opens com.example.imagenesdataset.Domain to com.fasterxml.jackson.databind;&#10;&#10;    exports com.example.imagenesdataset;&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

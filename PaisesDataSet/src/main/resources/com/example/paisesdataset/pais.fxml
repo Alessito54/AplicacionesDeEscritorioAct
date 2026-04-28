@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="550.0" prefWidth="760.0" styleClass="root" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.paisesdataset.PaisController">
+    <stylesheets>
+        <URL value="@style.css"/>
+    </stylesheets>
+    <padding>
+        <Insets bottom="30.0" left="40.0" right="40.0" top="30.0" />
+    </padding>
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="20.0" BorderPane.alignment="CENTER">
+            <VBox spacing="5.0">
+                <Label styleClass="title-label" text="Detalle del país" />
+                <HBox alignment="CENTER_LEFT" spacing="8.0">
+                    <Label styleClass="subtitle-label" text="País:" />
+                    <Text fx:id="txtNombre" styleClass="subtitle-label, highlight-text" />
+                </HBox>
+            </VBox>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="buttonRegreso" mnemonicParsing="false" onAction="#regresarPrincipal" styleClass="button-secondary" text="Regresar" />
+            <padding>
+                <Insets bottom="25.0" />
+            </padding>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="20.0" BorderPane.alignment="CENTER">
+            <HBox spacing="20.0">
+                <!-- Información del país -->
+                <VBox spacing="15.0" styleClass="card" HBox.hgrow="ALWAYS" prefWidth="300.0" minHeight="150.0">
+                    <Label styleClass="card-title" text="Información del país" />
+                    <Text fx:id="txtInfoPais" styleClass="info-text" wrappingWidth="280.0" />
+                </VBox>
+                
+                <!-- Hora local -->
+                <VBox spacing="15.0" styleClass="card" HBox.hgrow="ALWAYS" prefWidth="300.0" minHeight="150.0">
+                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                        <Label styleClass="card-title" text="Hora local" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Text fx:id="txtHoraActual" styleClass="info-text, highlight-text" />
+                    </HBox>
+                    <Text fx:id="txtInfoHora" styleClass="info-text" wrappingWidth="280.0" />
+                </VBox>
+            </HBox>
+
+            <!-- Clima actual -->
+            <VBox spacing="15.0" styleClass="card" minHeight="170.0">
+                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                    <Label styleClass="card-title" text="Clima actual" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Text fx:id="txtEstadoRecarga" styleClass="status-text" />
+                    <Button fx:id="buttonRecargarClima" mnemonicParsing="false" onAction="#recargarClima" styleClass="icon-button" text="↻" />
+                </HBox>
+                
+                <HBox spacing="30.0" alignment="CENTER_LEFT">
+                    <StackPane styleClass="weather-container" prefHeight="100.0" prefWidth="100.0">
+                        <ImageView fx:id="imagenClima" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
+                    </StackPane>
+                    <Text fx:id="txtInfoClima" styleClass="info-text" wrappingWidth="480.0" />
+                </HBox>
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>
